@@ -264,11 +264,14 @@ class PDFExtractorGUI:
 
         for key, (cn_label, en_label) in display_map.items():
             value = data.get(key)
-            if value:
-                self.result_text.insert(tk.END, f"{cn_label}: {value}")
-                if en_label:
-                    self.result_text.insert(tk.END, f" ({en_label})")
-                self.result_text.insert(tk.END, "\n")
+            # 确保 value 是字符串类型
+            if value is not None:
+                value = str(value) if not isinstance(value, str) else value
+                if value.strip():
+                    self.result_text.insert(tk.END, f"{cn_label}: {value}")
+                    if en_label:
+                        self.result_text.insert(tk.END, f" ({en_label})")
+                    self.result_text.insert(tk.END, "\n")
             else:
                 self.result_text.insert(tk.END, f"{cn_label}: [未找到]\n", "missing")
 
