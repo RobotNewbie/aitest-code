@@ -75,7 +75,7 @@ class PDFExtractorGUI:
             command=self.clear_all,
             width=15
         )
-        self.clear_button.pack(side)
+        self.clear_button.pack(side=tk.LEFT)
 
         # 结果显示区域
         result_frame = tk.Frame(self.root, padx=10, pady=10)
