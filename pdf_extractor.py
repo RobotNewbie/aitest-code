@@ -270,10 +270,7 @@ class PDFExtractorGUI:
                     self.result_text.insert(tk.END, f" ({en_label})")
                 self.result_text.insert(tk.END, "\n")
             else:
-                self.result_text.insert(tk(
-                    END,
-                    f"{cn_label}: [未找到]\n"
-                ), "missing")
+                self.result_text.insert(tk.END, f"{cn_label}: [未找到]\n", "missing")
 
         # 标记未找到的参数
         self.result_text.tag_config("missing", foreground="red")
